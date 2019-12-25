@@ -1,0 +1,22 @@
+﻿Applied Physics Letters	Appl. Phys. Lett.	Appl Phys Lett
+Carbon
+Computational Materials Science	Comput. Mater. Sci.	Comput Mater Sci
+Ieee-Asme Transactions on Mechatronics	Ieee-Asme Trans. Mechatr.	Ieee-Asme Trans Mechatr
+Journal of Physical Chemistry C	J. Phys. Chem. C	J Phys Chem C
+Journal of the Mechanics and Physics of Solids	J. Mech. Phys. Solids	J Mech Phys Solids
+Materials & Design	Mater. Des.	Mater Des
+Molecular Physics	Mol. Phys.	Mol Phys
+Nano Letters	Nano Lett.	Nano Lett
+Nanotechnology
+Nature
+Nature Communications	Nat. Commun.	Nat Commun
+Nature Nanotechnology volume	Nat. Nanotech. Vol.	Nat Nanotech Vol
+Phys. Rev. B
+Phys. Rev. Lett.
+Physical Chemistry Chemical Physics	Phys. Chem. Chem. Phys.	Phys Chem Chem Phys
+Physical Review Letters	Phys. Rev. Lett.	Phys Rev Lett
+Proceedings of the Royal society A	Proc. Roy. Soc. A	Proc Roy Soc A
+Sci. Rep.
+Science
+The Journal of Chemical Physics	J. Chem. Phys.	J Chem Phys
+The Journal of Physical Chemistry C	J. Phys. Chem. C	J Phys Chem C
