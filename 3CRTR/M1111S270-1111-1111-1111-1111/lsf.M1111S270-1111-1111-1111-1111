@@ -1,0 +1,7 @@
+#!/bin/sh
+APP_NAME=intelY_mid
+NP=48 #24
+NP_PER_NODE=12
+RUN="RAW"
+source /home-yw/env/intel-2016.sh
+mpirun -np $NP ./lmp_mpi -i  in.M1111S270-1111-1111-1111-1111

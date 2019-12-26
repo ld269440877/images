@@ -1,0 +1,15 @@
+rm -rf  ./lmp_mpi ./CH.airebo
+echo "##  rm -rf ./lmp_mpi ./CH.airebo  ##"
+cp /home-yw/users/nsyw236_XZ/software/lammps_2018/lammps/lammps-12Dec18/src/lmp_mpi  ./
+cp /home-yw/users/nsyw236_XZ/software/lammps_2018/lammps/lammps-12Dec18/potentials/CH.airebo ./
+#echo "##  cp /home-yw/users/nsyw236_XZ/software/lammps_2018/lammps/lammps-12Dec18/src/lmp_mpi  ./  ##"
+#echo "##  cp /home-yw/users/nsyw236_XZ/software/lammps_2018/lammps/lammps-12Dec18/potentials/CH.airebo ./  ##"
+#echo "##  ls -ahl ./  ##"
+dos2unix ./lsf.*
+chmod +x ./lsf.*
+bsub   lsf.*
+bjobs >> jobs2019923
+bjobs | tail -4 >> document*
+pwd >> document*
+ls -ahl ./
+tail -5  document*

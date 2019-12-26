@@ -1,0 +1,93 @@
+#lable_1
+units           metal 
+dimension       3 
+timestep        0.001
+atom_style      atomic 
+boundary        s    s    s 
+neighbor        2.0    bin 
+neigh_modify    delay    10 
+
+#lable_3
+region        motor_L    block   -10.550    10.550   -10.550    10.550     0.000     5.117
+region       rotor1_L    block    -7.460     7.460    -7.460     7.460    34.700    39.817
+region       rotor1_R    block    -7.460     7.460    -7.460     7.460   109.403   114.520
+region       rotor2_L    block    -7.460     7.460    -7.460     7.460   118.520   123.637
+region       rotor2_R    block    -7.460     7.460    -7.460     7.460   193.223   198.340
+region       rotor3_L    block    -7.460     7.460    -7.460     7.460   202.340   207.457
+region       rotor3_R    block    -7.460     7.460    -7.460     7.460   277.043   282.160
+
+
+read_restart   M1111S270-1111-1111-1111-1111.30000000.restart
+
+pair_style      hybrid         lj/cut 10.2 airebo 3.0 #10.2
+pair_coeff      *    *         airebo CH.airebo  C  C  C  C  C  C  C  C  C  C  H  H  H  H  H  H  H  H  H  H 
+
+
+pair_coeff    1    2*10       lj/cut  0.002840     3.400
+pair_coeff    2    3*10       lj/cut  0.002840     3.400
+pair_coeff    3    4*10       lj/cut  0.002840     3.400
+pair_coeff    4    5*10       lj/cut  0.002840     3.400
+pair_coeff    5    6*10       lj/cut  0.002840     3.400
+pair_coeff    6    7*10       lj/cut  0.002840     3.400
+pair_coeff    7    8*10       lj/cut  0.002840     3.400
+pair_coeff    8    9*10       lj/cut  0.002840     3.400
+pair_coeff    9      10       lj/cut  0.002840     3.400
+pair_coeff    1   12*20       lj/cut  0.001376     3.025
+pair_coeff    2      11       lj/cut  0.001376     3.025
+pair_coeff    2   13*20       lj/cut  0.001376     3.025
+pair_coeff    3   11*12       lj/cut  0.001376     3.025
+pair_coeff    3   14*20       lj/cut  0.001376     3.025
+pair_coeff    4   11*13       lj/cut  0.001376     3.025
+pair_coeff    4   15*20       lj/cut  0.001376     3.025
+pair_coeff    5   11*14       lj/cut  0.001376     3.025
+pair_coeff    5   16*20       lj/cut  0.001376     3.025
+pair_coeff    6   11*15       lj/cut  0.001376     3.025
+pair_coeff    6   17*20       lj/cut  0.001376     3.025
+pair_coeff    7   11*16       lj/cut  0.001376     3.025
+pair_coeff    7   18*20       lj/cut  0.001376     3.025
+pair_coeff    8   11*17       lj/cut  0.001376     3.025
+pair_coeff    8   19*20       lj/cut  0.001376     3.025
+pair_coeff    9   11*18       lj/cut  0.001376     3.025
+pair_coeff    9      20       lj/cut  0.001376     3.025
+pair_coeff   10   11*19       lj/cut  0.001376     3.025
+pair_coeff   11   12*20       lj/cut  0.001500     2.650
+pair_coeff   12   13*20       lj/cut  0.001500     2.650
+pair_coeff   13   14*20       lj/cut  0.001500     2.650
+pair_coeff   14   15*20       lj/cut  0.001500     2.650
+pair_coeff   15   16*20       lj/cut  0.001500     2.650
+pair_coeff   16   17*20       lj/cut  0.001500     2.650
+pair_coeff   17   18*20       lj/cut  0.001500     2.650
+pair_coeff   18   19*20       lj/cut  0.001500     2.650
+pair_coeff   19      20       lj/cut  0.001500     2.650
+
+
+fix       spring_stator1       stator1            spring/self 1000    xyz
+fix       spring_stator2       stator2            spring/self 1000    xyz
+fix       spring_stator3       stator3            spring/self 1000    xyz
+fix       spring_stator4       stator4            spring/self 1000    xyz
+fix       spring_stator5       stator5            spring/self 1000    xyz
+fix       spring_stator6       stator6            spring/self 1000    xyz
+
+#lable_6
+fix   spring_ML_z motor_Left       spring/self     1000            z
+fix   NVT         all                 nvt            temp            300. 300. 0.1  #tchain 1 #drag 0.5
+fix   rotate      M_H                 move rotate   0.0 0.0 0.0     0.0 0.0 1.0     5 
+
+compute      cc2          all     chunk/atom       type
+compute      mass_center  all     com/chunk        cc2
+fix          center_2     all     ave/time         1 200 200     c_mass_center[*]  file   M260S350-260-260-260-260_mcenter.vector   mode vector
+compute      cc3          all     chunk/atom       type
+compute      omiga        all     omega/chunk      cc3
+fix          omiga_3      all     ave/time         1 200 200     c_omiga[*]        file   M260S350-260-260-260-260_omiga.vector    mode vector
+dump        5          all             xtc      200    dump_per200_2million.xtc 
+
+
+restart  1000000   M1111S270.*.restart
+
+run         200000200   #20million
+#run         5000
+uncompute   cc2
+uncompute   mass_center
+uncompute   cc3
+uncompute   omiga
+undump        5

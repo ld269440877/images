@@ -1,0 +1,39 @@
+filename_head=M1111S270-1111-1111-1111-1111
+
+catalog_0 =F:\_python\python_module
+catalog_1 =F:\_python\20190710
+catalog_2 =F:\_python\20190710\M1111S270-1111-1111-1111-1111
+
+curfilerename_temp=M1111S270-1111-1111-1111-1111
+stators_temp=S-270-270-270
+
+infile_motor = F://_python/Models_two_class/Motor_gro/M_r0.746_1111_3.074_572.gro
+infile_rotor1 = F://_python/Models_two_class/Rotor_gro/R_r0.746_1111_7.993_1452.gro
+infile_rotor2 = F://_python/Models_two_class/Rotor_gro/R_r0.746_1111_7.993_1452.gro
+infile_rotor3 = F://_python/Models_two_class/Rotor_gro/R_r0.746_1111_7.993_1452.gro
+infile_stator1 =F://_python/Models_two_class/Stator_gro/S_r1.056_270_0.5_216.gro
+infile_stator3 =F://_python/Models_two_class/Stator_gro/S_r1.056_270_0.5_216.gro
+infile_stator5 =F://_python/Models_two_class/Stator_gro/S_r1.056_270_0.5_216.gro
+models_SE=
+         start   end
+motor        1   572
+rotor1     573  2024
+rotor2    2025  3476
+rotor3    3477  4928
+stator1   4929  5144
+stator1   5145  5360
+stator2   5361  5576
+stator2   5577  5792
+stator3   5793  6008
+stator3   6009  6224
+
+hdz=0.089
+L2 = 6.302
+stator6_distance_origin=26.027
+original set stator6_distance=26.027
+box_space=50
+fix xy MC_px=10.550033175303287
+MC_pz=0.0
+fix width dz=5.116666666666666
+catalog_2=
+F:\_python\20190710\M1111S270-1111-1111-1111-1111
