@@ -1,0 +1,16 @@
+echo "使用rz、sz命令进行文件互传receive - send zmodem协议"
+#sudo yum -y install lrzsz
+echo "安装Docker"
+yum install docker -y
+echo "启动Docker"
+service docker start
+echo "chkconfig docker on"
+chkconfig docker on
+echo "查看Docker版本"
+docker version
+echo "安装 Shadowsocks 的 VPN Docker 镜像"
+docker pull oddrationale/docker-shadowsocks
+echo "创建VPN"
+docker run -d -p 2020:2020 oddrationale/docker-shadowsocks -s 0.0.0.0 -p 2020 -k Aa2020 -m aes-256-cfb
+echo "查看docker下进程运行状态"
+docker ps -a
